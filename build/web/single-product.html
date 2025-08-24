@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Single Product View | GlamNest</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+        <!-- Css Styles Common-->
+        <link rel="stylesheet" href="vendor/css/bootstrap.min.css" type="text/css">
+
+        <!-- Css Styles Header & Footer-->
+        <link rel="stylesheet" href="vendor/css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="vendor/css/styleHeaderFooter.css" type="text/css">
+        <link rel="stylesheet" href="vendor/css/headermenuicons.css" type="text/css">
+
+
+        <link rel="stylesheet" href="vendor/css/style.css" type="text/css">
+
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #fdfaf6;
+                color: #333;
+            }
+
+            .title{
+                font-family: poppins;
+            }
+
+            .main-img {
+                width: 100%;
+                height: 530px;
+                object-fit: contain;
+                background-color: #f3eee5;
+                padding: 20px;
+                border-radius: 6px;
+            }
+
+            .product-images img {
+                width: 80px;
+                border-radius: 6px;
+                border: 2px solid transparent;
+                margin-bottom: 15px;
+                cursor: pointer;
+            }
+
+            .product-images img.active {
+                border-color: #cc8a4f;
+            }
+
+            .rating-stars {
+                color: #cc8a4f;
+            }
+
+            .price {
+                font-family: Poppins;
+                font-size: 35px;
+                font-weight: 600;
+                color: #ac713f;
+            }
+
+            .old-price {
+                text-decoration: line-through;
+                color: #939292;
+                font-size: 16px;
+            }
+
+            .pricebox{
+                background-color: #f3eee5;
+                padding: 15px 15px;
+                border-radius: 10px;
+                margin-top: 5px;
+            }
+
+            .badge-category {
+                background-color: #e36d34;
+                color: white;
+                font-size: 0.8rem;
+                padding: 4px 10px;
+                border-radius: 5px;
+
+            }
+
+            .add-btn {
+                background-color: #ac713f;
+                color: white;
+                font-weight: 600;
+                border-radius: 35px;
+                padding: 12px 40px;
+            }
+
+            .add-btn:hover {
+                background-color: #996030;
+            }
+
+            .qty-btn {
+                border-radius: 35px;
+                padding: 8px 12px;
+                font-weight: 600;
+            }
+
+            .circle-btn {
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #ddd;
+                background-color: white;
+            }
+
+            .circle-btn:hover {
+                background-color: #eee;
+            }
+
+            .list-group-item {
+                border-radius: 0;
+                background-color: #f9f3e6;
+                color: #333;
+                font-weight: 600;
+                border: 1px solid #ddd;
+                text-align: left;
+                margin-top: 5px;
+            }
+
+            .list-group-item.active {
+                background-color: #b78b59;
+                color: white;
+                border-color: #b78b59;
+            }
+
+            .tab-content-box .row {
+                background-color: #f7f3ea;
+                margin-bottom: 5px;
+                padding: 8px 0;
+                border-radius: 4px;
+            }
+
+            .tab-content-box p {
+                margin-bottom: 0.75rem;
+            }
+
+            .tab-content-box img {
+                object-fit: cover;
+            }
+
+            .striped-info .row:nth-child(odd) {
+                background-color: #fff;
+            }
+
+            .striped-info .row:nth-child(even) {
+                background-color: #f7f3ea;
+            }
+        </style>
+    </head>
+    <body onload="loadData();">
+
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Offcanvas Menu Begin -->
+        <div class="offcanvas-menu-overlay"></div>
+        <div class="offcanvas-menu-wrapper">
+            <div class="offcanvas__option">
+                <div class="offcanvas__links">
+                    <a href="#">Sign in | Register</a>
+
+                </div>
+
+            </div>
+            <div class="offcanvas__nav__option">
+                <a href="#"><img src="vendor/img/icon/search.png" alt=""></a>
+                <a href="#"><img src="vendor/img/icon/user.png" alt=""></a>
+                <a href="#"><img src="vendor/img/icon/heart.png" alt=""></a>
+                <a href="#"><img src="vendor/img/icon/cart.png" alt=""> </a>
+                <!-- <div class="price">$0.00</div> -->
+            </div>
+            <div id="mobile-menu-wrap"></div>
+            <div class="offcanvas__text">
+                <p>Upto 30% Off | Free shipping within 20 Days</p>
+            </div>
+        </div>
+        <!-- Offcanvas Menu End -->
+
+        <!-- Header Section Begin -->
+        <header class="header">
+            <div class="header__top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-7">
+                            <div class="header__top__left">
+                                <p>Upto 30% Off | Free shipping within 20 Days</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-5">
+                            <div class="header__top__right">
+                                <div class="header__top__links">
+                                    <a href="#">Sign in | Register</a>
+                                    <!-- <a href="#">FAQs</a> -->
+                                </div>
+                                <!-- <div class="header__top__hover">
+                                    <span>Usd </i></span>
+                                    <ul>
+                                        <li>USD</li>
+                                        <li>EUR</li>
+                                        <li>USD</li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="header__logo" style="width: 250px;">
+                            <a href="./index.html"><img src="vendor/img/logo2.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li><a href="./advancedSearch.html">Shop</a></li>
+                                <li><a href="#">Categories</a>
+                                    <ul class="dropdown">
+                                        <li><a href="./about.html">About Us</a></li>
+                                        <li><a href="./single-product.html">Single Product View</a></li>
+                                        <li><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                        <li><a href="./checkout.html">Check Out</a></li>
+                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="./blog.html">Blog</a></li>
+                                <li><a href="./contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="header__menu__icons">
+                            <ul>
+                                <li><a href="./search.html"><img src="vendor/img/icon/search-white.png" alt=""></a></li>
+                                <li><a href="./user-account.html"><img src="vendor/img/icon/user-white.png" alt=""></a>
+                                    <ul class="dropdown">
+                                        <li><a href="./my-account.html">My Account</a></li>
+                                        <li><a href="./dashboard.html">Seller Dashboard</a></li>
+                                        <li><a href="./shopping-cart.html">My Purchases</a></li>
+                                        <!-- <li><a href="./checkout.html">Check Out</a></li> -->
+                                        <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
+                                    </ul>
+                                </li>
+                                <li><a href="#"><img src="vendor/img/icon/heart-white.png" alt=""></a></li>
+                                <li><a href="./cart.html"><img src="vendor/img/icon/cart-white.png" alt=""> </a>
+                                </li>
+                            </ul>
+
+                            <!-- <div class="price">$0.00</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><img src="vendor/img/icon/menu.png" alt=""></i></div>
+            </div>
+        </header>
+        <!-- Header Section End -->
+
+        <!-- Single Product View Begin -->
+        <div class="container py-5 spvbody">
+
+            <div class="row gap-4">
+                <div class="col-md-5 d-flex flex-column align-items-center">
+                    <img id="mainImage"  class="main-img" alt="Sofa">
+
+                    <!-- Thumbnails Below Main Image -->
+                    <div class="d-flex justify-content-center gap-3 mt-3 product-images">
+                        <img id="image1"  alt="thumb" class="img-thumbnail active"
+                             onclick="switchImage(this)">
+                        <img id="image2"  alt="thumb" class="img-thumbnail" onclick="switchImage(this)">
+                        <img id="image3"  alt="thumb" class="img-thumbnail" onclick="switchImage(this)">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-md-6" style="margin-top: 10px;">
+                    <span class="badge-category" id="procategory">CONSTRUCTION</span>
+
+                    <h3 class="fw-bold fs-1 mt-2 title" id="product-title">Alexander Roll Arm Sofa</h3>
+                    <div class="d-flex align-items-center my-2">
+                        <span class="rating-stars me-2">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+                        <span class="text-muted">10 Reviews</span>
+                    </div>
+                    <div class="pricebox">
+                        <div class="d-flex align-items-center gap-2 my-2 ">
+                            <span class="price" id="productprice">$19.25</span>
+                            <span class="old-price">$28.35</span><br>
+                        </div>
+                        <span class="text-success" style="font-size: 15px" id="quantity"></span><br>
+                    </div>
+
+
+                    <p class="my-3" id="description1">Priyoshop has brought to you the Hijab 3 Pieces Combo Pack PS23. It is a completely
+                        modern
+                        design and you feel comfortable to put on this hijab. Buy it at the best price.</p>
+
+                    <!-- Additional Details -->
+                    <p><strong>Color: &nbsp;</strong><span id="color1"> </span></p>
+                    <p><strong>Brand: &nbsp;</strong><span id="pro-brand"> </span></p>
+                    <p><strong>Sub Category: &nbsp;</strong><span id="pro-subCat"> </span></p>
+
+
+                    <!-- Quantity + Add to Cart + Wishlist -->
+                    <div class="d-flex align-items-center gap-4 my-4">
+                        <div class="input-group" style="width: 120px;">
+                            <button class="btn btn-outline-secondary qty-btn" onclick="updateQty(-1)">-</button>
+                            <input type="text" class="form-control text-center" id="add-to-cart-qty" value="1" style="height: 42px;">
+                            <button class="btn btn-outline-secondary qty-btn" onclick="updateQty(1)">+</button>
+                        </div>
+                        <button class="btn add-btn" id="add-to-cart-main">
+                            ADD TO CART <i class="fa fa-shopping-basket ms-2"></i>
+                        </button>
+                        <button class="circle-btn">
+                            <i class="fa fa-heart"></i>
+                        </button>
+                    </div>
+
+
+
+                    <!--                    <p class="mt-3">
+                                            <strong>Share:</strong>
+                                            <i class="fab fa-facebook-f mx-2"></i>
+                                            <i class="fab fa-twitter mx-2"></i>
+                                            <i class="fab fa-behance mx-2"></i>
+                                            <i class="fab fa-instagram mx-2"></i>
+                                            <i class="fab fa-linkedin mx-2"></i>
+                                        </p>-->
+                </div>
+            </div>
+
+            <!-- Additional Info Section -->
+            <div class="row mt-5">
+                <!-- Tabs on the left -->
+                <div class="col-md-3">
+                    <div class="list-group">
+                        <button class="list-group-item list-group-item-action"
+                                onclick="showTab('description')">DESCRIPTION</button>
+                        <button class="list-group-item list-group-item-action active"
+                                onclick="showTab('additional')">SPECIFICATIONS</button>
+                        <button class="list-group-item list-group-item-action" onclick="showTab('reviews')">REVIEWS
+                            (3)</button>
+                    </div>
+                </div>
+
+                <!-- Tab content on the right -->
+                <div class="col-md-9">
+                    <div class="tab-content-box p-4 bg-light-subtle border rounded" id="tab-description"
+                         style="display: none;">
+                        <p id="description2">Priyoshop has brought to you the Hijab 3 Pieces Combo Pack PS23. It is a completely modern design
+                            and
+                            you feel comfortable to put on this hijab. Buy it at the best price.</p>
+                    </div>
+
+                    <div class="tab-content-box p-4 bg-light-subtle border rounded striped-info" id="tab-additional">
+                        <div class="row py-2 ">
+                            <div class="col-md-4 fw-semibold">Published On</div>
+                            <div class="col-md-8"  id="published-on">2025.07.31</div>
+                        </div>
+                        <div class="row py-2 ">
+                            <div class="col-md-4 fw-semibold">Sub Category</div>
+                            <div class="col-md-8" id="sub-category"></div>
+                        </div>
+                        <div class="row py-2 ">
+                            <div class="col-md-4 fw-semibold">Brand</div>
+                            <div class="col-md-8" id="brand"></div>
+                        </div>
+                        <div class="row py-2 ">
+                            <div class="col-md-4 fw-semibold">Color</div>
+                            <div class="col-md-8" id="color2"></div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-4 fw-semibold">Seating Capacity</div>
+                            <div class="col-md-8" id="seating-capacity"></div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-4 fw-semibold">Material</div>
+                            <div class="col-md-8" id="material"></div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-4 fw-semibold">Product Style</div>
+                            <div class="col-md-8" id="product-style"></div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-4 fw-semibold" >Overall Shape</div>
+                            <div class="col-md-8" id="overall-shape"></div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-4 fw-semibold">Arm Style</div>
+                            <div class="col-md-8" id="arm-style"></div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-4 fw-semibold">Condition</div>
+                            <div class="col-md-8" id="condition"></div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-4 fw-semibold">Warranty</div>
+                            <div class="col-md-8" id="warranty"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="tab-content-box p-4 bg-light-subtle border rounded" id="tab-reviews" style="display: none;">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Single Product View End -->
+
+        <!-- comment -->
+
+        <!-- Similar Product Section Begin -->
+        <hr>
+        <section class="product spad">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <!--<span>Hot Deals</span>-->
+                            <h2>Similar Products</h2>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+
+                <div class="row product__filter" style="margin-top: 10px;" id="similar-products-main">
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals" id="similar-product">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg=""
+                                 style="border-radius: 7px;">
+                                <a href="#" id="similar-product-link"><img src="" id="similar-product-image" /></a>
+                                <span class="label">New</span>
+                                <ul class="product__hover">
+                                    <li><a href="#"><img src="vendor/img/icon/heart.png" alt=""> <span>Wishlist</span></a></li>
+                                    <li><a href="#"><img src="vendor/img/icon/cart.png" alt=""> <span>Add to Cart</span></a></li>
+                                    <li><a href="#" id="similar-product-quick"><img src="vendor/img/icon/eye.png" alt=""> <span>View Product</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <h6 id="similar-product-title"></h6>
+                                <a  id="similar-product-add-to-cart" style="cursor: pointer;" class="add-cart">+ Add To Cart</a>
+
+                                <h5 class="mt-3" id="similar-product-price"></h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <!-- Similar Product Section End -->
+
+
+
+        <!-- Footer Section Begin -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"><img src="vendor/img/logo2.png" alt=""></a>
+                            </div>
+                            <p>The customer is at the heart of our unique business model, which includes design.</p>
+                            <a href="#"><img src="vendor/img/payment.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>About Us</h6>
+                            <ul>
+                                <li><a href="#">About GlamNest</a></li>
+                                <li><a href="#">GlamNest Rewards</a></li>
+                                <li><a href="#">Sell on GlamNest</a></li>
+                                <li><a href="#">Product Collections</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>Customer Service</h6>
+                            <ul>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Track My Order</a></li>
+                                <li><a href="#">Return & Exchange Policy</a></li>
+                                <li><a href="#">Help Center</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3  col-md-6 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>NewsLetter</h6>
+                            <div class="footer__newslatter">
+                                <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                                <form action="#">
+                                    <input type="text" placeholder="Your email" class="text-success">
+                                    <button type="submit"><span><img src="vendor/img/icon/sendmail.png" /></span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="footer__copyright__text">
+
+                            <p>GlamNest ©
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> | 2020
+                                All rights reserved
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+
+
+        <!-- Js Plugins -->
+        <script src="vendor/js/jquery-3.3.1.min.js"></script>
+        <script src="vendor/js/bootstrap.min.js"></script>
+        <script src="vendor/js/jquery.slicknav.js"></script>
+        <script src="vendor/js/owl.carousel.min.js"></script>
+        <script src="vendor/js/main.js"></script>
+
+        <script>
+                                    function switchImage(el) {
+                                        document.getElementById('mainImage').src = el.src;
+                                        document.querySelectorAll('.product-images img').forEach(img => img.classList.remove('active'));
+                                        el.classList.add('active');
+                                    }
+
+                                    function updateQty(change) {
+                                        const qtyInput = document.getElementById('add-to-cart-qty');
+                                        let qty = parseInt(qtyInput.value);
+                                        qty += change;
+                                        if (qty < 1)
+                                            qty = 1;
+                                        qtyInput.value = qty;
+                                    }
+
+                                    function showTab(tab) {
+                                        document.querySelectorAll('.tab-content-box').forEach(el => el.style.display = 'none');
+                                        document.querySelectorAll('.list-group-item').forEach(el => el.classList.remove('active'));
+
+                                        document.getElementById('tab-' + tab).style.display = 'block';
+                                        const btns = document.querySelectorAll('.list-group-item');
+                                        btns.forEach(btn => {
+                                            if (btn.textContent.trim().includes(tab.toUpperCase())) {
+                                                btn.classList.add('active');
+                                            }
+                                        });
+                                    }
+
+                                    // Show default tab
+                                    showTab('additional');
+
+        </script>
+
+        <script src="assets/ownjs/single-product.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    </body>
+</html>
