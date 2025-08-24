@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Verify Account | GlamNest</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body {
+                background: #193720;
+                font-family: 'Segoe UI', sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .card {
+                background: #f9f9f9;
+                border-radius: 20px;
+                padding: 30px;
+                width: 350px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                animation: fadeIn 0.4s ease-in;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .illustration {
+                width: 80px;
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 12px;
+                color: #666;
+                margin-bottom: 20px;
+            }
+
+            .otp-box {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .otp-box input {
+                width: 40px;
+                height: 50px;
+                text-align: center;
+                font-size: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                transition: border-color 0.2s;
+            }
+
+            .otp-box input:focus {
+                border-color: #5d8f34;
+                outline: none;
+            }
+
+            .resend {
+                font-size: 13px;
+                color: #444;
+                margin-bottom: 20px;
+            }
+
+            .resend a {
+                color: #007bff;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            .resend a:hover {
+                text-decoration: underline;
+            }
+
+            .verify-btn {
+                background: #a7c957;
+                color: rgb(0, 0, 0);
+                width: 100%;
+                border: none;
+                padding: 15px;
+                font-size: 16px;
+                border-radius: 30px;
+                cursor: pointer;
+                transition: 0.3s ease;
+            }
+
+            .verify-btn:hover {
+                background: #63b137;
+                color: rgb(255, 255, 255);
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" class="illustration" alt="Lock Icon">
+            <h3>Verify Your Account</h3>
+            <p>Enter the 5 digit code sent to your email</p>
+            <p class="text-danger" id="message"></p>
+
+            <div class="otp-box">
+                <input type="text" maxlength="1" id="vc1">
+                <input type="text" maxlength="1" id="vc2">
+                <input type="text" maxlength="1" id="vc3">
+                <input type="text" maxlength="1" id="vc4">
+                <input type="text" maxlength="1" id="vc5">
+                <input type="text" maxlength="1" id="vc6">
+            </div>
+
+            <div class="resend">Didn't receive it? <a href="#" onclick="resendCode()">Resend Code</a></div>
+
+            <button class="verify-btn" onclick="verifyAccount()">Verify Code</button>
+        </div>
+
+        <script>
+            const inputs = document.querySelectorAll('.otp-box input');
+            inputs.forEach((input, index) => {
+                input.addEventListener('input', () => {
+                    if (input.value && index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    }
+                });
+
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Backspace' && !input.value && index > 0) {
+                        inputs[index - 1].focus();
+                    }
+                });
+            });
+        </script>
+        
+        <script src="assets/ownjs/verify-account.js"></script>
+        <script src="assets/ownjs/resend-code.js"></script>
+    </body>
+</html>

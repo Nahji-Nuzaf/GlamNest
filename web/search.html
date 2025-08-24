@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Advanced Search | GlamNest</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Css Styles Common-->
+        <link rel="stylesheet" href="vendor/css/bootstrap.min.css" type="text/css">
+
+
+        <!-- Css Styles Header & Footer-->
+        <link rel="stylesheet" href="vendor/css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="vendor/css/styleHeaderFooter.css" type="text/css">
+        <link rel="stylesheet" href="vendor/css/style.css" type="text/css">
+        <!-- <link rel="stylesheet" href="css/elegant-icons.css" type="text/css"> -->
+        <link rel="stylesheet" href="vendor/css/headermenuicons.css" type="text/css">
+
+        <!-- <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"> -->
+        <!-- <link rel="stylesheet" href="css/nice-select.css" type="text/css"> -->
+
+        <style>
+            #condition-options span.chosen a {
+                color: white;
+                background-color: black;
+                /*font-weight: bold;*/
+            }
+            #style-options span.chosen a {
+                color: white;
+                background-color: black;
+                /*font-weight: bold;*/
+            }
+        </style>
+
+    </head>
+    <body onload="loadData()">
+
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Offcanvas Menu Begin -->
+        <div class="offcanvas-menu-overlay"></div>
+        <div class="offcanvas-menu-wrapper">
+            <div class="offcanvas__option">
+                <div class="offcanvas__links">
+                    <a href="#">Sign in | Register</a>
+                    <!-- <a href="#">FAQs</a> -->
+                </div>
+                <!-- <div class="offcanvas__top__hover">
+                    <span>Usd <i class="arrow_carrot-down"></i></span>
+                    <ul>
+                        <li>USD</li>
+                        <li>EUR</li>
+                        <li>USD</li>
+                    </ul>
+                </div> -->
+            </div>
+            <div class="offcanvas__nav__option">
+                <a href="#"><img src="vendor/img/icon/search.png" alt=""></a>
+                <a href="#"><img src="vendor/img/icon/user.png" alt=""></a>
+                <a href="#"><img src="vendor/img/icon/heart.png" alt=""></a>
+                <a href="#"><img src="vendor/img/icon/cart.png" alt=""> </a>
+                <!-- <div class="price">$0.00</div> -->
+            </div>
+            <div id="mobile-menu-wrap"></div>
+            <div class="offcanvas__text">
+                <p>Upto 30% Off | Free shipping within 20 Days</p>
+            </div>
+        </div>
+        <!-- Offcanvas Menu End -->
+
+        <!-- Header Section Begin -->
+        <header class="header">
+            <div class="header__top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-7">
+                            <div class="header__top__left">
+                                <p>Upto 30% Off | Free shipping within 20 Days</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-5">
+                            <div class="header__top__right">
+                                <div class="header__top__links">
+                                    <a href="./sign-up.html">Sign in | Register</a>
+                                    <!-- <a href="#">FAQs</a> -->
+                                </div>
+                                <!-- <div class="header__top__hover">
+                                    <span>Usd </i></span>
+                                    <ul>
+                                        <li>USD</li>
+                                        <li>EUR</li>
+                                        <li>USD</li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="header__logo">
+                            <a href="./index.html"><img src="vendor/img/logo2.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class=""><a href="./index.html">Home</a></li>
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="#">Categories</a>
+                                    <ul class="dropdown">
+                                        <li><a href="./about.html">About Us</a></li>
+                                        <li><a href="./shop-details.html">Shop Details</a></li>
+                                        <li><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                        <li><a href="./checkout.html">Check Out</a></li>
+                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="./contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="header__menu__icons">
+                            <ul>
+                                <li><a href="./search.html"><img src="vendor/img/icon/search-white.png" alt=""></a></li>
+                                <li><a href="./"><img src="vendor/img/icon/user-white.png" alt=""></a>
+                                    <ul class="dropdown">
+                                        <li><a href="./user-account.html">My Account</a></li>
+                                        <li><a href="./seller-dashboard.html">Seller Dashboard</a></li>
+                                        <li><a href="#">My Purchases</a></li>
+                                        <!-- <li><a href="./checkout.html">Check Out</a></li> -->
+                                        <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
+                                    </ul>
+                                </li>
+                                <li><a href="#"><img src="vendor/img/icon/heart-white.png" alt=""></a></li>
+                                <li><a href="./cart.html"><img src="vendor/img/icon/cart-white.png" alt=""> </a></li>
+                            </ul>
+
+                            <!-- <div class="price">$0.00</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><img src="vendor/img/icon/menu.png" alt=""></i></div>
+            </div>
+        </header>
+        <!-- Header Section End -->
+
+        <!-- Shop Section Begin -->
+        <section class="shop spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="shop__sidebar">
+                            <div class="shop__sidebar__search">
+                                <!--<form>-->
+                                    <input id="basicsearch" type="text" placeholder="Search...">
+                                    <button onclick="searchProduct(0);"><img src="vendor/img/icon/search.png" /></button>
+                                <!--</form>-->
+                            </div>
+                            <div class="shop__sidebar__accordion">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="card">
+                                        <div class="card-heading">
+                                            <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
+                                        </div>
+                                        <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="shop__sidebar__categories">
+                                                    <ul class="nice-scroll list-unstyled" id="category-options">
+                                                        <li id="category-li" style="display: none;">
+                                                            <label class="form-check  d-flex align-items-center " style="margin-left: 10px; gap: 5px; cursor: pointer;">
+                                                                <input class="form-check-input " type="checkbox" style="transform: scale(1.4);">
+                                                                <span class="label-text mt-1">Sample</span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-heading">
+                                            <a data-toggle="collapse" data-target="#collapseTwo">Brands</a>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="shop__sidebar__brand">
+                                                    <ul id="brand-options">
+                                                        <li id="brand-li">
+                                                            <!--<a href="#" id="brand-a">Louis Vuitton</a>-->
+                                                            <label class="form-check  d-flex align-items-center " style="margin-left: 10px; gap: 5px; cursor: pointer;">
+                                                                <input class="form-check-input " type="checkbox" style="transform: scale(1.4);">
+                                                                <span class="label-text mt-1">Sample</span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-heading">
+                                            <a data-toggle="collapse" data-target="#collapseFive">Material</a>
+                                        </div>
+                                        <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="shop__sidebar__brand">
+                                                    <ul id="material-options">
+                                                        <li id="material-li">
+                                                            <!--<a id="material-a" href="#">Wood</a>-->
+                                                            <label class="form-check  d-flex align-items-center " style="margin-left: 10px; gap: 5px; cursor: pointer;">
+                                                                <input class="form-check-input " type="checkbox" style="transform: scale(1.4);">
+                                                                <span class="label-text mt-1">Sample</span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-heading">
+                                            <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                        </div>
+                                        <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="shop__sidebar__price">
+                                                    <div class="mb-3">
+                                                        <div class="form-floating mb-2">
+                                                            <label for="minPrice" style="font-size: 13px">Minimum Price</label>
+                                                            <input type="number" class="form-control" id="minPrice" placeholder="Minimum" value="0">
+
+                                                        </div>
+                                                        <div class="form-floating">
+                                                            <label for="maxPrice" style="font-size: 13px">Maximum Price</label>
+                                                            <input type="number" class="form-control" id="maxPrice" placeholder="Maximum" value="1000">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-heading">
+                                            <a data-toggle="collapse" data-target="#collapseFour">Condition</a>
+                                        </div>
+                                        <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="shop__sidebar__tags" id="condition-options">
+                                                    <span id="condition-li"><a href="#" id="condition-a"></a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-heading">
+                                            <a data-toggle="collapse" data-target="#collapseSix">Style</a>
+                                        </div>
+                                        <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="shop__sidebar__tags" id="style-options">
+                                                    <span id="style-li"><a href="#" id="style-a">Modern</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" onclick="searchProduct(0);">Apply</button>
+                                    <button class="btn btn-bg-primary mt--10">Reset All</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="shop__product__option">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="shop__product__option__left">
+                                        <p style="font-family: poppins;">Showing 1–12 of <span id="all-item-count"> 126 </span> results</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="shop__product__option__right">
+                                        <p>Sort by Price:</p>
+                                        <select>
+                                            <option value="">Low To High</option>
+                                            <option value="">$0 - $55</option>
+                                            <option value="">$55 - $100</option>
+                                        </select>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+
+
+                        <div class="row" id="search-product-container">
+
+                            <div class="col-lg-4 col-md-6 col-sm-6" id="search-product">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="" style="border-radius: 7px;">
+                                        <a href="#" id="search-product-a1"><img src="" id="search-product-img1"/></a>
+                                        <span class="label">New</span>
+                                        <ul class="product__hover">
+                                            <li><a href="#"><img src="vendor/img/icon/heart.png" alt=""> <span>Wishlist</span></a></li>
+                                            <li><a href="#" id="search-product-add-to-cart" onclick=""><img src="vendor/img/icon/cart.png" alt=""> <span>Add to Cart</span></a></li>
+                                            <li><a href="#" id="search-product-a2"><img src="vendor/img/icon/eye.png" alt=""> <span>View Product</span></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6 id="search-product-title-1"></h6>
+                                        <a onclick="" style="cursor: pointer;" class="add-cart">+ Add To Cart</a>
+
+                                        <h5 class="mt-3" id="search-product-price-1">$ </h5>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="product__pagination" id="search-pagination-container">
+                                    <a class="active" style="margin-right: 5px" id="search-pagination-button" href="#">1</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Shop Section End -->
+
+        <!-- Footer Section Begin -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"><img src="vendor/img/logo2.png" alt=""></a>
+                            </div>
+                            <p>The customer is at the heart of our unique business model, which includes design.</p>
+                            <a href="#"><img src="vendor/img/payment.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>About Us</h6>
+                            <ul>
+                                <li><a href="#">About GlamNest</a></li>
+                                <li><a href="#">GlamNest Rewards</a></li>
+                                <li><a href="#">Sell on GlamNest</a></li>
+                                <li><a href="#">Product Collections</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>Customer Service</h6>
+                            <ul>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Track My Order</a></li>
+                                <li><a href="#">Return & Exchange Policy</a></li>
+                                <li><a href="#">Help Center</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3  col-md-6 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>NewsLetter</h6>
+                            <div class="footer__newslatter">
+                                <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                                <form action="#">
+                                    <input type="text" placeholder="Your email" class="text-success">
+                                    <button type="submit"><span><img src="vendor/img/icon/sendmail.png" /></span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="footer__copyright__text">
+
+                            <p>GlamNest ©
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> | 2020
+                                All rights reserved
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+
+
+
+        <script src="vendor/js/jquery-3.3.1.min.js"></script>
+        <script src="vendor/js/bootstrap.min.js"></script>
+        <script src="vendor/js/jquery.slicknav.js"></script>
+        <script src="vendor/js/owl.carousel.min.js"></script>
+        <script src="vendor/js/main.js"></script>
+
+        <script src="vendor/js/animsition.min.js"></script>
+
+        <script src="vendor/js/jquery.nicescroll.min.js"></script>
+        <script src="vendor/js/jquery.nice-select.min.js"></script>
+
+        <script src="assets/ownjs/search.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    </body>
+</html>

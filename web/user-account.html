@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>GlamNest | User Account</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Css Styles Common-->
+        <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> -->
+
+        <!-- Css Styles Header & Footer-->
+        <link rel="stylesheet" href="vendor/css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="vendor/css/styleHeaderFooter.css" type="text/css">
+        <link rel="stylesheet" href="vendor/css/style.css" type="text/css">
+        <link rel="stylesheet" href="vendor/css/headermenuicons.css" type="text/css">
+
+
+        <link rel="stylesheet" href="assets/css/myaccount.css" type="text/css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"> -->
+        <!-- <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-9/assets/css/login-9.css"> -->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    </head>
+
+
+    <body onload="loadData();">
+
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Offcanvas Menu Begin -->
+        <div class="offcanvas-menu-overlay"></div>
+        <div class="offcanvas-menu-wrapper">
+            <div class="offcanvas__option">
+                <div class="offcanvas__links">
+                    <a href="./sign-up.html">Sign in | Register</a>
+                    <!-- <a href="#">FAQs</a> -->
+                </div>
+                <!-- <div class="offcanvas__top__hover">
+                    <span>Usd <i class="arrow_carrot-down"></i></span>
+                    <ul>
+                        <li>USD</li>
+                        <li>EUR</li>
+                        <li>USD</li>
+                    </ul>
+                </div> -->
+            </div>
+            <div class="offcanvas__nav__option">
+                <a href="./search.html"><img src="vendor/img/icon/search.png" alt=""></a>
+                <a href="./user-account.html"><img src="vendor/img/icon/user.png" alt=""></a>
+                <a href="#"><img src="vendor/img/icon/heart.png" alt=""></a>
+                <a href="./cart.html"><img src="vendor/img/icon/cart.png" alt=""> </a>
+                <!-- <div class="price">$0.00</div> -->
+            </div>
+            <div id="mobile-menu-wrap"></div>
+            <div class="offcanvas__text">
+                <p>Upto 30% Off | Free shipping within 20 Days</p>
+            </div>
+        </div>
+        <!-- Offcanvas Menu End -->
+
+        <!-- Header Section Begin -->
+        <header class="header">
+            <div class="header__top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-7">
+                            <div class="header__top__left">
+                                <p>Upto 30% Off | Free shipping within 20 Days</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-5">
+                            <div class="header__top__right">
+                                <div class="header__top__links">
+                                    <a href="./sign-up.html">Sign in | Register</a>
+                                    <!-- <a href="#">FAQs</a> -->
+                                </div>
+                                <!-- <div class="header__top__hover">
+                                    <span>Usd </i></span>
+                                    <ul>
+                                        <li>USD</li>
+                                        <li>EUR</li>
+                                        <li>USD</li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="header__logo">
+                            <a href="./index.html"><img src="vendor/img/logo2.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="#">Categories</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Shop Details</a></li>
+                                        <li><a href="#">Shopping Cart</a></li>
+                                        <li><a href="#">Check Out</a></li>
+                                        <li><a href="#">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="header__menu__icons">
+                            <ul>
+                                <li><a href="./search.html"><img src="vendor/img/icon/search-white.png" alt=""></a></li>
+                                <li><a href="#"><img src="vendor/img/icon/user-white.png" alt=""></a>
+                                    <ul class="dropdown">
+                                        <li><a href="./user-account.html">My Account</a></li>
+                                        <li><a href="./seller-dashboard.html">Seller Dashboard</a></li>
+                                        <li><a href="#">My Purchases</a></li>
+                                        <!-- <li><a href="./checkout.html">Check Out</a></li> -->
+                                        <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
+                                    </ul>
+                                </li>
+                                <li><a href="#"><img src="vendor/img/icon/heart-white.png" alt=""></a></li>
+                                <li><a href="./cart.html"><img src="vendor/img/icon/cart-white.png" alt=""> </a></li>
+                            </ul>
+
+                            <!-- <div class="price">$0.00</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><img src="vendor/img/icon/menu.png" alt=""></i></div>
+            </div>
+        </header>
+        <!-- Header Section End -->
+
+
+
+        <div class="myaccountbody">
+            <div class="account-wrapper">
+                <div class="sidebar">
+                    <div class="profile">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" id="previewImage" class="profile-pic"
+                             alt="Profile">
+                        <input type="file" id="profileUpload" accept="image/*" hidden onchange="loadImage(event)">
+                        <div class="upload-btn" onclick="document.getElementById('profileUpload').click()">Change Profile
+                            Picture
+                        </div>
+                        <h5 class="mb-0" id="username">Nahji Nuzaf</h5>
+                        <small class="text-muted" id="since"> Created On </small>
+                    </div>
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" onclick="showSection('info')"><i class="bi bi-person"></i> Personal info</a>
+                        <a class="nav-link" onclick="showSection('addresses')"><i class="bi bi-geo-alt"></i> Addresses</a>
+                        <a class="nav-link" onclick="showSection('wishlist')"><i class="bi bi-lock"></i> Change Password</a>
+                        <a class="nav-link" onclick="showSection('orders')"><i class="bi bi-box"></i> My Orders</a>
+                        <a class="nav-link text-danger" onclick="signOut()"><i class="bi bi-box-arrow-left"></i> Log Out</a>
+                        <!-- <a class="nav-link" onclick="showSection('payment')"><i class="bi bi-credit-card"></i> Payment methods</a> -->
+                        <!-- <a class="nav-link" onclick="showSection('reviews')"><i class="bi bi-star"></i> My reviews</a> -->
+                        <!-- <a class="nav-link" onclick="showSection('notifications')"><i class="bi bi-bell"></i> Notifications</a> -->
+                        <hr>
+                        <a class="nav-link text-muted" href="#"><i class="bi bi-question-circle"></i> Help center</a>
+                        <a class="nav-link text-muted" href="#"><i class="bi bi-question-circle"></i> Terms & Conditions</a>
+
+                    </nav>
+                </div>
+
+                <div class="content">
+                    <div id="info-section" class="section">
+                        <h4 class="mb-4 fw-medium fs-3">Personal Information</h4>
+                        <div class="card p-4">
+                            <!--<form>-->
+                            <p id="message" class="form-text fs-6 my-2 text-danger"></p>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label fs-6">First Name</label>
+                                    <input type="text" class="form-control" value="" id="firstName">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" value="" id="lastName">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <input readonly type="email" class="form-control" value="" id="email">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Mobile</label>
+                                    <input type="text" class="form-control" value="" id="mobile">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Address Line 01</label>
+                                    <input type="text" class="form-control" value="" id="lineOne">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Address Line 02</label>
+                                    <input type="text" class="form-control" value="" id="lineTwo">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">City</label>
+                                    <select class="form-select" id="citySelect">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Postal Code</label>
+                                    <input type="text" class="form-control" value="" id="postalCode">
+                                </div>
+                            </div>
+                            <div class="text-end mt-4">
+                                <button type="submit" class="btn btn-primary px-4" onclick="savePersonalChanges();">Save Changes</button>
+                            </div>
+                            <!--                            </form>-->
+                        </div>
+                    </div>
+
+                    <div id="orders-section" class="section d-none">
+                        <h4 class="mb-4 fs-3">My Orders</h4>
+                        <div class="card p-4 mb-3">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6>Order #102938</h6>
+                                    <p>Placed on: July 15, 2025</p>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge bg-success">Delivered</span><br>
+                                    <button class="btn btn-outline-dark btn-sm mt-2">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-4 mb-3">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h6>Order #102915</h6>
+                                    <p>Placed on: July 2, 2025</p>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge bg-warning text-dark">In Transit</span><br>
+                                    <button class="btn btn-outline-dark btn-sm mt-2">Track Order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="wishlist-section" class="section d-none">
+                        <h4 class="mb-4 fs-3">Change Password</h4>
+                        <div class="card p-4">
+                            <!--<form>-->
+                            <p id="messagep" class="form-text fs-6 my-2 text-danger"></p>
+                            <div class="row g-4">
+                                <div class="col-md-12">
+                                    <label class="form-label fs-6">Current Password</label>
+                                    <input type="password" class="form-control" value="" id="currentPassword" disabled="">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">New Password</label>
+                                    <input type="password" class="form-control" value="" id="newPassword">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Confirm New Password</label>
+                                    <input type="password" class="form-control" value="" id="confirmNewPassword">
+                                </div>
+                            </div>
+                            <div class="text-end mt-4">
+                                <button type="submit" class="btn btn-primary px-4" onclick="savePasswordChanges();">Save Changes</button>
+                            </div>
+                            <!--</form>-->
+                        </div>
+                    </div>
+
+
+                    <div id="addresses-section" class="section d-none">
+                        <h4 class="mb-4 fs-3">Shipping Address</h4>
+                        <div class="card p-4 mb-3">
+                            <div class="d-flex justify-content-between">
+                                <div id="addressUL">
+                                    <h6 class="text-danger mb-4" style="font-size: 18px;">Home Address</h6>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge bg-success">Default</span><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- <div id="notifications-section" class="section d-none">
+                        <h4 class="mb-4 fs-3">Notifications</h4>
+                        <div class="alert alert-light">You're all caught up. No new notifications.</div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer Section Begin -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"><img src="vendor/img/logo2.png" alt=""></a>
+                            </div>
+                            <p>The customer is at the heart of our unique business model, which includes design.</p>
+                            <a href="#"><img src="vendor/img/payment.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>About Us</h6>
+                            <ul>
+                                <li><a href="#">About GlamNest</a></li>
+                                <li><a href="#">GlamNest Rewards</a></li>
+                                <li><a href="#">Sell on GlamNest</a></li>
+                                <li><a href="#">Product Collections</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>Customer Service</h6>
+                            <ul>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Track My Order</a></li>
+                                <li><a href="#">Return & Exchange Policy</a></li>
+                                <li><a href="#">Help Center</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3  col-md-6 col-sm-6">
+                        <div class="footer__widget">
+                            <h6>NewsLetter</h6>
+                            <div class="footer__newslatter">
+                                <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                                <form action="#">
+                                    <input type="text" placeholder="Your email" class="text-success">
+                                    <button type="submit"><span><img src="vendor/img/icon/sendmail.png" /></span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="footer__copyright__text">
+
+                            <p>GlamNest ©
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> | 2020
+                                All rights reserved
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+
+        <!-- Js Plugins -->
+        <script src="vendor/js/jquery-3.3.1.min.js"></script>
+        <script src="vendor/js/bootstrap.min.js"></script>
+        <script src="vendor/js/jquery.slicknav.js"></script>
+        <script src="vendor/js/main.js"></script>
+
+
+        <script src="assets/ownjs/my-account.js"></script>
+        <script src="assets/ownjs/sign-out.js"></script>
+
+
+        <script>
+                                    function showSection(id) {
+                                        document.querySelectorAll('.section').forEach(sec => sec.classList.add('d-none'));
+                                        document.getElementById(id + '-section').classList.remove('d-none');
+                                        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                                        event.target.classList.add('active');
+                                    }
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </body>
+</html>
